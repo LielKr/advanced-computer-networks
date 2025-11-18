@@ -36,141 +36,155 @@ The system includes a server capable of handling multiple clients simultaneously
 
 Features:
 
--User registration: NAME <username>
+    -User registration: NAME <username>
+    
+    -List connected users: GET_NAMES
+    
+    -Direct messaging: MSG <user> <message>
+    
+    -Broadcast messaging: MSG BROADCAST <message>
+    
+    -Blocking users: BLOCK <username>
+    
+    -Graceful disconnection: EXIT
 
--List connected users: GET_NAMES
+Server Maintains:
 
--Direct messaging: MSG <user> <message>
+    -Active client sockets
+    
+    -Username ↔ socket mappings
+    
+    -Per-user block lists
 
--Broadcast messaging: MSG BROADCAST <message>
+Technologies Used:
 
--Blocking users: BLOCK <username>
+    -Python TCP sockets (socket.AF_INET, socket.SOCK_STREAM)
+    
+    -Event-driven server with select.select()
+    
+    -Custom 3-byte length-prefixed protocol
+    
+    -Modular architecture (server/client/protocol separation)
+    
+    -Server – server.py
 
--Graceful disconnection: EXIT
+The server implements:
 
--Server Maintains:
+    -Client connection management
+    
+    -Command parsing
+    
+    -Message routing (direct & broadcast)
+    
+    -Block rule enforcement
+    
+    -State tracking for all connected clients
+    
+    -Non-blocking I/O using select()
+    
+    -Client – client.py
 
--Active client sockets
+The client provides:
 
--Username ↔ socket mappings
+    -Non-blocking keyboard input (msvcrt)
+    
+    -Concurrent message reception
+    
+    -Support for all chat commands
+    
+    -Automatic use of the custom protocol for message framing
+    
+    -Protocol – protocol.py
 
--Per-user block lists
-
--Technologies Used
-
--Python TCP sockets (socket.AF_INET, socket.SOCK_STREAM)
-
--Event-driven server with select.select()
-
--Custom 3-byte length-prefixed protocol
-
--Modular architecture (server/client/protocol separation)
-
--Server – server.py
-
--The server implements:
-
--Client connection management
-
--Command parsing
-
--Message routing (direct & broadcast)
-
--Block rule enforcement
-
--State tracking for all connected clients
-
--Non-blocking I/O using select()
-
--Client – client.py
-
--The client provides:
-
--Non-blocking keyboard input (msvcrt)
-
--Concurrent message reception
-
--Support for all chat commands
-
--Automatic use of the custom protocol for message framing
-
--Protocol – protocol.py
-
--Implements the application protocol:
+Implements the application protocol:
 
 -<LENGTH:3><DATA>
 
 
 
 
+
+
 Includes:
 
-create_msg(data) – wraps outgoing messages with a 3-digit length field
-
-get_message(sock) – reads a complete framed message safely
-
-Ensures correct message boundaries over TCP.
-
-2. DNS Query Tools (Scapy)
-
-Two utilities demonstrating understanding of DNS internals and Scapy-based packet crafting.
-
-myDNSapp.py
-
-Experimental Scapy-based DNS tool with raw packet crafting and response inspection.
-
-nslookup_DNS.py
+    
+    -create_msg(data) – wraps outgoing messages with a 3-digit length field
+    
+    -get_message(sock) – reads a complete framed message safely
+    
+    -Ensures correct message boundaries over TCP.
+    
+    -2. DNS Query Tools (Scapy)
+    
+    -Two utilities demonstrating understanding of DNS internals and Scapy-based packet crafting.
+    
+    -myDNSapp.py
+    
+    -Experimental Scapy-based DNS tool with raw packet crafting and response inspection.
+    
+    -nslookup_DNS.py
 
 A functional DNS resolver supporting:
 
-A records (IPv4)
-
-PTR (reverse DNS)
-
-CNAME extraction
-
-Structured, readable output
-
-Skills Demonstrated
-Networking & Protocols
-
-TCP socket development
-
-Message framing & parsing
-
-Multi-client communication
-
-Event-driven architecture
-
-DNS record types & resolver logic
-
-Software Engineering
-
-Clean modular structure
-
-Documentation & readability
-
-Defensive input handling
-
-Git version control workflow
-
-Security
-
-Input sanitization
-
-Blocking and filtering logic
-
-Handling malformed data
+    -A records (IPv4)
+    
+    -PTR (reverse DNS)
+    
+    -CNAME extraction
+    
+    Structured, readable output
 
 
 
 
-How to Run
+
+
+
+
+
+Skills Demonstrated:
+
+    -Networking & Protocols
+    
+    -TCP socket development
+    
+    -Message framing & parsing
+    
+    -Multi-client communication
+    
+    -Event-driven architecture
+    
+    -DNS record types & resolver logic
+    
+    Software Engineering
+    
+    Clean modular structure
+    
+    Documentation & readability
+    
+    Defensive input handling
+    
+    Git version control workflow
+    
+    Security
+    
+    Input sanitization
+    
+    Blocking and filtering logic
+    
+    Handling malformed data
+
+
+
+
+How to Run!!-
     Start the server
     python server.py
 
+
 Start a client
     python client.py
+
 
 Supported chat commands
     NAME <your_name>
@@ -184,8 +198,8 @@ Run DNS resolver
     python nslookup_DNS.py
 
 
-Author
 
+Author,
 Liel Kriheli
 Software Engineering Student
 Advanced Computer Networks Track
