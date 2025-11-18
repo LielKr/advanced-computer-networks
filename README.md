@@ -175,8 +175,6 @@ Skills Demonstrated:
     Handling malformed data
 
 
-
-
 How to Run!!-
     Start the server
     python server.py
@@ -187,19 +185,21 @@ Start a client
 
 
 Supported chat commands
-    -NAME <your_name>
-    -GET_NAMES
-    -MSG <target> <message>
-    -MSG BROADCAST <message>
-    -BLOCK <name>
-    -EXIT
+
+		NAME <your_name>
+	    GET_NAMES
+	    MSG <target> <message>
+	    MSG BROADCAST <message>
+	    BLOCK <name>
+	    EXIT
 
 Run DNS resolver
-    python nslookup_DNS.py
+   		python nslookup_DNS.py
 
 
 
 Author,
-Liel Kriheli
-Software Engineering Student
-Advanced Computer Networks Track
+
+	Liel Kriheli
+	Software Engineering Student
+	Advanced Computer Networks Track
