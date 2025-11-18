@@ -187,12 +187,12 @@ Start a client
 
 
 Supported chat commands
-    NAME <your_name>
-    GET_NAMES
-    MSG <target> <message>
-    MSG BROADCAST <message>
-    BLOCK <name>
-    EXIT
+    -NAME <your_name>
+    -GET_NAMES
+    -MSG <target> <message>
+    -MSG BROADCAST <message>
+    -BLOCK <name>
+    -EXIT
 
 Run DNS resolver
     python nslookup_DNS.py
