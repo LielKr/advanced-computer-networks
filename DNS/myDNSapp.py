@@ -33,3 +33,7 @@ def nslookup(domain):
             elif r.type == 1:
                 print("IPv4:", r.rdata)
 """
+main 
+if ther is 
+any 
+p
