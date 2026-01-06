@@ -32,8 +32,7 @@ def nslookup(domain):
                 print("Canonical name:", r.rdata.decode())
             elif r.type == 1:
                 print("IPv4:", r.rdata)
+                h
+                k
 """
-main 
-if ther is 
-any 
-p
+
